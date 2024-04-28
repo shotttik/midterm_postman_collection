@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "e880c366-e80d-4bdb-bd90-472d35174f00",
+		"name": "Midterm",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET_LIST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// save data as environment variables to verify the next request redirects as expected\r",
+							"pm.test(\"Confirm  contains all expected keys\", function () {\r",
+							"     let jsonData = pm.response.json();\r",
+							"       pm.expect(jsonData).to.be.an(\"array\");\r",
+							"    pm.expect(pm.response.json()[0]).to.to.have.keys([\"id\",\"title\",\"dueDate\", \"completed\"])\r",
+							"\r",
+							"    })\r",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakerestapi.azurewebsites.net/api/v1/Activities"
+			},
+			"response": []
+		},
+		{
+			"name": "SAVE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"title\": \"string\",\r\n  \"dueDate\": \"2024-04-28T14:18:57.365Z\",\r\n  \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakerestapi.azurewebsites.net/api/v1/Activities"
+			},
+			"response": []
+		},
+		{
+			"name": "GET_ONLY_ONE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// save data as environment variables to verify the next request redirects as expected\r",
+							"pm.test(\"Confirm  contains all expected keys\", function () {\r",
+							"     let jsonData = pm.response.json();\r",
+							"    pm.expect(pm.response.json()).to.to.have.keys([\"id\",\"title\",\"dueDate\", \"completed\"])\r",
+							"\r",
+							"    })\r",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://fakerestapi.azurewebsites.net/api/v1/Activities/1"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// save data as environment variables to verify the next request redirects as expected\r",
+							"pm.test(\"Confirm  contains all expected keys\", function () {\r",
+							"     let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.to.have.keys([\"id\",\"title\",\"dueDate\", \"completed\"])\r",
+							"    })\r",
+							"    "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 5,\r\n  \"title\": \"string\",\r\n  \"dueDate\": \"2024-04-28T14:21:44.029Z\",\r\n  \"completed\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://fakerestapi.azurewebsites.net/api/v1/Activities/5"
+			},
+			"response": []
+		},
+		{
+			"name": "WASHLA ;d",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "https://fakerestapi.azurewebsites.net/api/v1/Activities/1"
+			},
+			"response": []
+		}
+	]
+}
